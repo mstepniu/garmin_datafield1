@@ -12,6 +12,7 @@ class markdatafield1View extends WatchUi.DataField {
 
     function initialize() {
         DataField.initialize();
+        
         heartrate = 0;
         total_distance = 0.0;
         total_duration = 0.0;
@@ -19,6 +20,7 @@ class markdatafield1View extends WatchUi.DataField {
         pace = 0.0;
         additional_steps = 0;
         base_steps = ActivityMonitor.getInfo().steps;
+        activity_type = "N\\A";
 
     }
 
@@ -47,20 +49,23 @@ class markdatafield1View extends WatchUi.DataField {
         } else {
             View.setLayout(Rez.Layouts.MainLayout(dc));
             var speed_label = View.findDrawableById("speed_label") as Text;
-            speed_label.setColor(Graphics.COLOR_BLACK);
+            speed_label.setColor(Graphics.COLOR_WHITE);
             speed_label.setText("mph");
             var pace_label = View.findDrawableById("pace_label") as Text;
-            pace_label.setColor(Graphics.COLOR_BLACK);
-            pace_label.setText("min/mi");
+            pace_label.setColor(Graphics.COLOR_WHITE);
+            pace_label.setText("pace");
             var heartrate_label = View.findDrawableById("heartrate_label") as Text;
-            heartrate_label.setColor(Graphics.COLOR_BLACK);
+            heartrate_label.setColor(Graphics.COLOR_WHITE);
             heartrate_label.setText("hr");
             var total_distance_label = View.findDrawableById("total_distance_label") as Text;
-            total_distance_label.setColor(Graphics.COLOR_BLACK);
+            total_distance_label.setColor(Graphics.COLOR_WHITE);
             total_distance_label.setText("Distance");
             var total_duration_label = View.findDrawableById("total_duration_label") as Text;
-            total_duration_label.setColor(Graphics.COLOR_BLACK);
+            total_duration_label.setColor(Graphics.COLOR_WHITE);
             total_duration_label.setText("Duration");
+            var activity_label = View.findDrawableById("activity_label") as Text;
+            activity_label.setColor(Graphics.COLOR_DK_GREEN);
+            activity_label.setText(activity_type);
             // var labelView = View.findDrawableById("label") as Text;
             // labelView.locY = labelView.locY - 16;
             // var valueView = View.findDrawableById("value") as Text;
@@ -75,9 +80,6 @@ class markdatafield1View extends WatchUi.DataField {
     // Note that compute() and onUpdate() are asynchronous, and there is no
     // guarantee that compute() will be called before onUpdate().
     function compute(info as Activity.Info) as Void {
-        var temp = Activity.getProfileInfo();
-        // ????????? info.getCurrentWorkoutStep().sport ????????
-        activity_type = temp.sport;
         // See Activity.Info in the documentation for available information.
         if(info has :currentHeartRate){
             if(info.currentHeartRate != null){
@@ -107,7 +109,7 @@ class markdatafield1View extends WatchUi.DataField {
         if (info has :currentSpeed) {
             if (info.currentSpeed != null) {
                 speed = info.currentSpeed as Number;
-                speed = speed * 0.44704;
+                speed = speed * 2.23693629;
                 if (speed > 0) {
                     pace = 60.0 / speed;
                 }
@@ -126,22 +128,54 @@ class markdatafield1View extends WatchUi.DataField {
     // Display the value you computed here. This will be called
     // once a second when the data field is visible.
     function onUpdate(dc as Dc) as Void {
+        setActivityType();
         setHeartRate();
         setTotalDistance();
         setTotalDuration();
         setSpeed();
         setPace();
         setSteps();
-        // Call parent's onUpdate(dc) to redraw the layout
+        // Call parent's onUpdate(dc) to redraw the layout        
         View.onUpdate(dc);
         setCurrentTime(dc);
-        
+    }
+
+    private function setActivityType() {
+        var temp = Activity.getProfileInfo();
+        // ????????? info.getCurrentWorkoutStep().sport ????????
+        if (temp == null) {
+            activity_type = "n\\a";
+        }
+        else {
+            if (temp.sport == 1) {
+                activity_type = "Run";
+            }
+            else if (temp.sport == 2) {
+                activity_type = "Bike";
+            }
+            else if (temp.sport == 11) {
+                activity_type = "Walk";
+            }
+            else {
+                activity_type = "N\\A";
+            }
+        }
+        var activity_label = View.findDrawableById("activity_label") as Text;
+        activity_label.setColor(Graphics.COLOR_DK_GRAY);
+        activity_label.setText(activity_type);
     }
 
     private function setCurrentTime(dc as Dc) {
-        var clockTime = System.getClockTime();
         var view_time = View.findDrawableById("time") as Text;
-        view_time.setColor(Graphics.COLOR_BLACK as Number);
+        view_time.setColor(Graphics.COLOR_WHITE as Number);
+
+        var clockTime = System.getClockTime();
+        if (clockTime == null) {
+            view_time.setText("error");
+            return;
+        }
+        
+        
 
         if (clockTime == null) {
             view_time.setText("N\\A");
@@ -157,17 +191,17 @@ class markdatafield1View extends WatchUi.DataField {
                 hours = 12;
             }
         }
-        view_time.setText(hours + ":" + minutes);        
+        view_time.setText(hours + ":" + minutes.format("%02d"));        
 
-        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_DK_GRAY);
+        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_LT_GRAY);
         dc.setPenWidth(2);
-        dc.drawRectangle(view_time.locX - (view_time.width / 2) - 5, 200, view_time.width + 10, view_time.height);
+        dc.drawRectangle(view_time.locX - (view_time.width / 2) - 5, 210, view_time.width + 10, view_time.height);
 
     }
 
     private function setHeartRate() {
         var view_heartrate = View.findDrawableById("heartrate") as Text;
-        view_heartrate.setColor(Graphics.COLOR_RED);
+        view_heartrate.setColor(Graphics.COLOR_PINK);
         view_heartrate.setText(heartrate.toString());
         
     }
@@ -185,7 +219,7 @@ class markdatafield1View extends WatchUi.DataField {
     // check if over 1 hour
     private function setTotalDuration() {
         var view_total_duration = View.findDrawableById("total_duration") as Text;
-        view_total_duration.setColor(Graphics.COLOR_DK_GREEN);
+        view_total_duration.setColor(Graphics.COLOR_GREEN);
         var timeformat = "$1$:$2$";
         var duration_minutes = 0;
         var duration_seconds = total_duration / 1000;
@@ -216,7 +250,7 @@ class markdatafield1View extends WatchUi.DataField {
 
     private function setPace() {
         var view_pace = View.findDrawableById("pace") as Text;
-        view_pace.setColor(Graphics.COLOR_DK_RED);
+        view_pace.setColor(Graphics.COLOR_YELLOW);
         view_pace.setText(pace.format("%02.2f").toString());
     }
 
