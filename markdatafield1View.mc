@@ -156,8 +156,26 @@ class markdatafield1View extends WatchUi.DataField {
             else if (temp.sport == 11) {
                 activity_type = "Walk";
             }
+            else if (temp.sport == 5) {
+                activity_type = "Swim";
+            }
+            else if (temp.sport == 6) {
+                activity_type = "BBall";
+            }
+            else if (temp.sport == 17) {
+                activity_type = "Hiking";
+            }
+            else if (temp.sport == 25) {
+                activity_type = "Golf";
+            }
+            else if (temp.sport == 29) {
+                activity_type = "Fishing";
+            }
+            else if (temp.subSport ==  15) {
+                activity_type = "Elliptical";
+            }
             else {
-                activity_type = "N\\A";
+                activity_type = "what?!?";
             }
         }
         var activity_label = View.findDrawableById("activity_label") as Text;
@@ -195,13 +213,13 @@ class markdatafield1View extends WatchUi.DataField {
 
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_LT_GRAY);
         dc.setPenWidth(2);
-        dc.drawRectangle(view_time.locX - (view_time.width / 2) - 5, 210, view_time.width + 10, view_time.height);
+        dc.drawRectangle(view_time.locX - (view_time.width / 2) - 5, 205, view_time.width + 10, view_time.height);
 
     }
 
     private function setHeartRate() {
         var view_heartrate = View.findDrawableById("heartrate") as Text;
-        view_heartrate.setColor(Graphics.COLOR_PINK);
+        view_heartrate.setColor(0xff9dff);
         view_heartrate.setText(heartrate.toString());
         
     }
@@ -250,7 +268,7 @@ class markdatafield1View extends WatchUi.DataField {
 
     private function setPace() {
         var view_pace = View.findDrawableById("pace") as Text;
-        view_pace.setColor(Graphics.COLOR_YELLOW);
+        view_pace.setColor(0xd8b527);
         view_pace.setText(pace.format("%02.2f").toString());
     }
 
