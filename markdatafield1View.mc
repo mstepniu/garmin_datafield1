@@ -213,7 +213,7 @@ class markdatafield1View extends WatchUi.DataField {
 
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_LT_GRAY);
         dc.setPenWidth(2);
-        dc.drawRectangle(view_time.locX - (view_time.width / 2) - 5, 205, view_time.width + 10, view_time.height);
+        dc.drawRectangle(view_time.locX - (view_time.width / 2) - 5, 205 * dc.getHeight() / 240, view_time.width + 10, view_time.height);
 
     }
 
@@ -283,7 +283,7 @@ class markdatafield1View extends WatchUi.DataField {
         
         var view_steps = View.findDrawableById("steps") as Text;
         view_steps.setColor(Graphics.COLOR_ORANGE);
-        view_steps.setText("+" + additional_steps.toString());
+        view_steps.setText("+" + additional_steps.toString());        
     }
 
 }
