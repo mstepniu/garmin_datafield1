@@ -6,5 +6,5 @@ The list of different activities can be found at https://developer.garmin.com/co
 This datafield was made to be a similar style to the watchface published.
 
 There are 2 pictures of the watchface:
-https://github.com/mstepniu/garmin_datafield1/blob/main/datafield1.PNG
+<br>https://github.com/mstepniu/garmin_datafield1/blob/main/datafield1.PNG
 https://github.com/mstepniu/garmin_datafield1/blob/main/fulldatafield1.PNG
