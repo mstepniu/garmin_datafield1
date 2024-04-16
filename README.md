@@ -7,4 +7,4 @@ This datafield was made to be a similar style to the watchface published.
 
 There are 2 pictures of the watchface:
 <br>https://github.com/mstepniu/garmin_datafield1/blob/main/datafield1.PNG
-https://github.com/mstepniu/garmin_datafield1/blob/main/fulldatafield1.PNG
+https://github.com/mstepniu/garmin_datafield1/blob/main/fulldatafield1.png
