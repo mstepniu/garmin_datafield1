@@ -274,8 +274,7 @@ class markdatafield1View extends WatchUi.DataField {
 
     private function setSteps() {
         if (base_steps > ActivityMonitor.getInfo().steps) {
-            base_steps = ActivityMonitor.getInfo().steps;
-            additional_steps = additional_steps + base_steps;
+            base_steps = 0 - additional_steps;
         }
         else {
             additional_steps = ActivityMonitor.getInfo().steps - base_steps;
