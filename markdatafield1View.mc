@@ -111,12 +111,16 @@ class markdatafield1View extends WatchUi.DataField {
                 speed = info.currentSpeed as Number;
                 speed = speed * 2.23693629;
                 if (speed > 0) {
+                    var temp;
                     pace = 60.0 / speed;
+                    temp = pace - pace.toNumber();
+                    temp = temp * .6;
+                    pace = pace.toNumber() + temp;
+
                 }
                 else {
                     pace = 0.0;
                 }
-                
             }
             else {
                 speed = 0.0;
@@ -229,6 +233,7 @@ class markdatafield1View extends WatchUi.DataField {
         view_total_distance.setColor(Graphics.COLOR_BLUE);
         var temp;
         temp = total_distance * 0.000621;
+        temp = Math.floor(temp * 10) / 10;
         view_total_distance.setText(temp.format("%02.1f").toString() + "mi");
 
     }
