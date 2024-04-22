@@ -7,6 +7,7 @@ import Toybox.WatchUi;
 class markdatafield1View extends WatchUi.DataField {
 
     var heartrate, total_distance, total_duration, speed, pace, additional_steps;
+    var pace_min, pace_sec;
     var activity_type;
     var base_steps;
 
@@ -18,6 +19,8 @@ class markdatafield1View extends WatchUi.DataField {
         total_duration = 0.0;
         speed = 0.0;
         pace = 0.0;
+        pace_min = 0.0;
+        pace_sec = 0.0;
         additional_steps = 0;
         base_steps = ActivityMonitor.getInfo().steps;
         activity_type = "N\\A";
@@ -110,21 +113,28 @@ class markdatafield1View extends WatchUi.DataField {
             if (info.currentSpeed != null) {
                 speed = info.currentSpeed as Number;
                 speed = speed * 2.23693629;
-                if (speed > 0) {
+                if (speed > 0.6) {
                     var temp;
                     pace = 60.0 / speed;
                     temp = pace - pace.toNumber();
                     temp = temp * .6;
+                    pace_sec = temp;
+                    pace_min = pace.toNumber();
                     pace = pace.toNumber() + temp;
+                    pace_sec = pace_sec * 100;
 
                 }
                 else {
                     pace = 0.0;
+                    pace_min = 0.0;
+                    pace_sec = 0.0;
                 }
             }
             else {
                 speed = 0.0;
                 pace = 0.0;
+                pace_sec = 0.0;
+                pace_min = 0.0;
             }
         }
     }
@@ -179,7 +189,7 @@ class markdatafield1View extends WatchUi.DataField {
                 activity_type = "Elliptical";
             }
             else {
-                activity_type = "what?!?";
+                activity_type = "";
             }
         }
         var activity_label = View.findDrawableById("activity_label") as Text;
@@ -267,14 +277,15 @@ class markdatafield1View extends WatchUi.DataField {
 
     private function setSpeed() {
         var view_speed = View.findDrawableById("speed") as Text;
-        view_speed.setColor(Graphics.COLOR_PURPLE);
+        view_speed.setColor(0x33FFDD);
         view_speed.setText(speed.format("%02.1f").toString());
     }
 
     private function setPace() {
         var view_pace = View.findDrawableById("pace") as Text;
-        view_pace.setColor(0xd8b527);
-        view_pace.setText(pace.format("%02.2f").toString());
+        view_pace.setColor(0xffa86b);
+        view_pace.setText(pace_min.format("%01d").toString() + ":" + pace_sec.format("%02d").toString());
+        //view_pace.setText(pace.format("%02.2f"));
     }
 
     private function setSteps() {
