@@ -24,6 +24,7 @@ class markdatafield1View extends WatchUi.DataField {
         additional_steps = 0;
         base_steps = ActivityMonitor.getInfo().steps;
         activity_type = "N\\A";
+        
 
     }
 
@@ -50,29 +51,29 @@ class markdatafield1View extends WatchUi.DataField {
 
         // Use the generic, centered layout
         } else {
+
             View.setLayout(Rez.Layouts.MainLayout(dc));
             var speed_label = View.findDrawableById("speed_label") as Text;
-            speed_label.setColor(Graphics.COLOR_WHITE);
+            speed_label.setColor(Application.Properties.getValue("ColorLabel"));
+            
             speed_label.setText("mph");
             var pace_label = View.findDrawableById("pace_label") as Text;
-            pace_label.setColor(Graphics.COLOR_WHITE);
+            pace_label.setColor(Application.Properties.getValue("ColorLabel"));
             pace_label.setText("pace");
             var heartrate_label = View.findDrawableById("heartrate_label") as Text;
-            heartrate_label.setColor(Graphics.COLOR_WHITE);
+            heartrate_label.setColor(Application.Properties.getValue("ColorLabel"));
             heartrate_label.setText("hr");
             var total_distance_label = View.findDrawableById("total_distance_label") as Text;
-            total_distance_label.setColor(Graphics.COLOR_WHITE);
+            total_distance_label.setColor(Application.Properties.getValue("ColorLabel"));
             total_distance_label.setText("Distance");
             var total_duration_label = View.findDrawableById("total_duration_label") as Text;
-            total_duration_label.setColor(Graphics.COLOR_WHITE);
+            total_duration_label.setColor(Application.Properties.getValue("ColorLabel"));
             total_duration_label.setText("Duration");
             var activity_label = View.findDrawableById("activity_label") as Text;
             activity_label.setColor(Graphics.COLOR_DK_GREEN);
             activity_label.setText(activity_type);
-            // var labelView = View.findDrawableById("label") as Text;
-            // labelView.locY = labelView.locY - 16;
-            // var valueView = View.findDrawableById("value") as Text;
-            // valueView.locY = valueView.locY + 7;
+
+
         }
 
         // (View.findDrawableById("label") as Text).setText(Rez.Strings.label);
@@ -142,6 +143,8 @@ class markdatafield1View extends WatchUi.DataField {
     // Display the value you computed here. This will be called
     // once a second when the data field is visible.
     function onUpdate(dc as Dc) as Void {
+
+
         setActivityType();
         setHeartRate();
         setTotalDistance();
@@ -149,9 +152,15 @@ class markdatafield1View extends WatchUi.DataField {
         setSpeed();
         setPace();
         setSteps();
-        // Call parent's onUpdate(dc) to redraw the layout        
+        
+        // Call parent's onUpdate(dc) to redraw the layout     
         View.onUpdate(dc);
         setCurrentTime(dc);
+
+
+        //dc.setColor(Application.Properties.getValue("ColorBackground"), Application.Properties.getValue("ColorBackground"));
+        // dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
+        // dc.clear();
     }
 
     private function setActivityType() {

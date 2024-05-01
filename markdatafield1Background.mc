@@ -1,11 +1,11 @@
 import Toybox.Application;
 import Toybox.Graphics;
+import Toybox.Lang;
 import Toybox.WatchUi;
 
 class Background extends WatchUi.Drawable {
 
-    hidden var mColor as ColorValue;
-
+    hidden var mColor;
     function initialize() {
         var dictionary = {
             :identifier => "Background"
@@ -13,10 +13,10 @@ class Background extends WatchUi.Drawable {
 
         Drawable.initialize(dictionary);
 
-        mColor = Graphics.COLOR_WHITE;
+        mColor = Application.Properties.getValue("ColorBackground");
     }
 
-    function setColor(color as ColorValue) as Void {
+    function setColor(color as Number) as Void {
         mColor = color;
     }
 
@@ -26,3 +26,4 @@ class Background extends WatchUi.Drawable {
     }
 
 }
+
