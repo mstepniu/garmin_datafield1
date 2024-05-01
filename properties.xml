@@ -1,0 +1,4 @@
+<properties>
+    <property id="ColorBackground" type="number">0x000000</property>
+    <property id="ColorLabel" type="number">0xFFFFFF</property>
+</properties>

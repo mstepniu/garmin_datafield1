@@ -1,0 +1,27 @@
+<settings>
+    <setting propertyKey="@Properties.ColorBackground" title="@Strings.ColorBackground">
+        <settingConfig type="list">
+            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+            <listEntry value="0xFF69B4">@Strings.ColorHotPink</listEntry>
+            <listEntry value="0x9932CC">@Strings.ColorDarkOrchid</listEntry>
+            <listEntry value="0x8B0000">@Strings.ColorDarkRed</listEntry>
+            <listEntry value="0x191970">@Strings.ColorMidnightBlue</listEntry>
+            <listEntry value="0x2F4F4F">@Strings.ColorDarkSlateGray</listEntry>
+        </settingConfig>
+    </setting>
+        <setting propertyKey="@Properties.ColorLabel" title="@Strings.ColorLabel">
+        <settingConfig type="list">
+            <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
+            <listEntry value="0xFFC0CB">@Strings.ColorPink</listEntry>
+            <listEntry value="0xFF69B4">@Strings.ColorHotPink</listEntry>
+            <listEntry value="0xE6E6FA">@Strings.ColorLavender</listEntry>
+            <listEntry value="0xFFF0F5">@Strings.ColorLavenderBlush</listEntry>
+            <listEntry value="0xFFFAFA">@Strings.ColorSnow</listEntry>
+            <listEntry value="0xFFE4E1">@Strings.ColorMistyRose</listEntry>
+            <listEntry value="0x6495ED">@Strings.ColorCornflowerBlue</listEntry>
+            <listEntry value="0xB0E0E6">@Strings.ColorPowderBlue</listEntry>
+        </settingConfig>
+    </setting>
+</settings>
