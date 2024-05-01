@@ -1,0 +1,21 @@
+<strings>
+    <string id="AppName">markdatafield1</string>
+    <string id="ColorBackground">Background Color</string>
+    <string id="ColorLabel">Label Color</string>
+    <string id="ColorBlack">Black</string>
+    <string id="ColorWhite">White</string>
+    <string id="ColorBlue">Blue</string>
+    <string id="ColorRed">Red</string>
+    <string id="ColorPink">Pink</string>
+    <string id="ColorHotPink">Hot Pink</string>
+    <string id="ColorLavender">Lavender</string>
+    <string id="ColorLavenderBlush">Lavender Blush</string>
+    <string id="ColorSnow">Snow</string>
+    <string id="ColorMistyRose">Misty Rose</string>
+    <string id="ColorCornflowerBlue">Cornflower Blue</string>
+    <string id="ColorPowderBlue">Powder Blue</string>
+    <string id="ColorDarkOrchid">Dark Orchid</string>
+    <string id="ColorDarkRed">Dark Red</string>
+    <string id="ColorMidnightBlue">Midnight Blue</string>
+    <string id="ColorDarkSlateGray">Dark Slate Gray</string>
+</strings>
