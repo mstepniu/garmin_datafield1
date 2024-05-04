@@ -1,21 +1,51 @@
 <strings>
     <string id="AppName">markdatafield1</string>
     <string id="ColorBackground">Background Color</string>
-    <string id="ColorLabel">Label Color</string>
+    <string id="ColorDescriptionLabel">Description Label Color</string>
     <string id="ColorBlack">Black</string>
     <string id="ColorWhite">White</string>
-    <string id="ColorBlue">Blue</string>
+    <string id="ColorLtGray">Light Gray</string>
+    <string id="ColorDkGray">Dark Gray</string>
+    <string id="ColorDarkSlateGray">Dark Slate Gray</string>
     <string id="ColorRed">Red</string>
-    <string id="ColorPink">Pink</string>
-    <string id="ColorHotPink">Hot Pink</string>
-    <string id="ColorLavender">Lavender</string>
-    <string id="ColorLavenderBlush">Lavender Blush</string>
-    <string id="ColorSnow">Snow</string>
-    <string id="ColorMistyRose">Misty Rose</string>
+    <string id="ColorDkRed">Dark Red</string>
+    <string id="ColorOrange">Orange</string>
+    <string id="ColorSalmon">Salmon</string>
+    
+    <string id="ColorBeige">Beige</string>
+    <string id="ColorLtYellow">Light Yellow</string>
+
+    <string id="ColorYellow">Yellow</string>
+
+    <string id="ColorLtGreen">Light Green</string>
+
+    <string id="ColorGreen">Green</string>
+    <string id="ColorDkGreen">Dark Green</string>
+    <string id="ColorLtTeal">Light Teal</string>
+    <string id="ColorBlue">Blue</string>
     <string id="ColorCornflowerBlue">Cornflower Blue</string>
     <string id="ColorPowderBlue">Powder Blue</string>
-    <string id="ColorDarkOrchid">Dark Orchid</string>
-    <string id="ColorDarkRed">Dark Red</string>
+    <string id="ColorDkBlue">Dark Blue</string>
     <string id="ColorMidnightBlue">Midnight Blue</string>
-    <string id="ColorDarkSlateGray">Dark Slate Gray</string>
+    <string id="ColorPurple">Purple</string>
+    <string id="ColorDarkOrchid">Dark Orchid</string>
+    <string id="ColorPink">Pink</string>
+    <string id="ColorHotPink">Hot Pink</string>
+    <string id="ColorHeartPink">Heart Pink</string>
+    <string id="ColorDuration">Duration</string>
+    <string id="ColorDistance">Distance</string>
+    <string id="ColorHeartRate">Heartrate</string>
+    <string id="ColorSpeed">Speed</string>
+    <string id="ColorPace">Pace</string>
+    <string id="ColorSteps">Steps</string>
+    <string id="ColorTime">Time</string>
+    <string id="ColorSport">Sport</string>
+    <string id="ColorDefaultDuration">Default Duration Green</string>
+    <string id="ColorDefaultDistance">Default Distance Blue</string>
+    <string id="ColorDefaultHeartRate">Default Heartrate Pink</string>
+    <string id="ColorDefaultSpeed">Default Speed Light Teal</string>
+    <string id="ColorDefaultPace">Default Pace Salmon</string>
+    <string id="ColorDefaultSteps">Default Steps Orange</string>
+    <string id="ColorDefaultTime">Default Time White</string>
+    <string id="ColorDefaultSport">Default Sport Gray</string>
 </strings>

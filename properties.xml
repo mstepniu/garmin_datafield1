@@ -1,4 +1,12 @@
 <properties>
     <property id="ColorBackground" type="number">0x000000</property>
-    <property id="ColorLabel" type="number">0xFFFFFF</property>
+    <property id="ColorDescriptionLabel" type="number">0xFFFFFF</property>
+    <property id="ColorDistance" type="number">0x00AAFF</property>
+    <property id="ColorDuration" type="number">0x00FF00</property>
+    <property id="ColorHeartRate" type="number">0xFF9DFF</property>
+    <property id="ColorSpeed" type="number">0x33FFDD</property>
+    <property id="ColorPace" type="number">0xFFA86B</property>
+    <property id="ColorSteps" type="number">0xFF5500</property>
+    <property id="ColorTime" type="number">0xFFFFFF</property>
+    <property id="ColorSport" type="number">0x555555</property>
 </properties>
