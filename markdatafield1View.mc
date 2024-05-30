@@ -232,7 +232,7 @@ class markdatafield1View extends WatchUi.DataField {
                 hours = 12;
             }
         }
-        view_time.setText(hours + ":" + minutes.format("%02d"));        
+        view_time.setText(hours + ":" + minutes.format("%02d"));
 
         dc.setColor(Application.Properties.getValue("ColorTime"), Application.Properties.getValue("ColorTime"));
         dc.setPenWidth(2);
@@ -269,18 +269,23 @@ class markdatafield1View extends WatchUi.DataField {
 
         if (duration_seconds >= 3600) {
             duration_hours = duration_seconds / 3600;
-            duration_seconds = duration_seconds - (duration_hours * 3600);
-            duration_hours = duration_hours.format("%0d");
+            duration_seconds = duration_seconds - (duration_hours * 3600);           
         }
         if (duration_seconds >= 60) {
             duration_minutes = duration_seconds / 60;
-            duration_seconds = duration_seconds - (duration_minutes * 60);
-            duration_minutes = duration_minutes.format("%0d");
+            duration_seconds = duration_seconds - (duration_minutes * 60);  
         }
-        var timestring = Lang.format(timeformat, [duration_minutes, duration_seconds.format("%02d")]);
-        if (duration_hours > 0) {
+        var timestring;
+
+        if (duration_hours != 0) {
+            duration_hours = duration_hours.format("%0d");
+            timestring = Lang.format(timeformat, [duration_minutes.format("%02d"), duration_seconds.format("%02d")]);
             timestring = duration_hours.toString() + ":" + timestring;
         }
+        else {
+            timestring = Lang.format(timeformat, [duration_minutes, duration_seconds.format("%02d")]);
+        }
+        
         view_total_duration.setText(timestring);
     }
 
